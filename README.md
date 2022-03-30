@@ -49,7 +49,7 @@ and
 ```
 git clone https://github.com/leno3003/DeepFaceLab.git
 ```
-
+---
 In order to use `KDEF` as face dataset, it must be placed in the
 `faceSwapAugmentation` directory, as such:
 ```
