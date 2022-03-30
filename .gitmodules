@@ -1,0 +1,6 @@
+[submodule "DeepFaceLab_Linux"]
+	path = DeepFaceLab_Linux
+	url = https://github.com/nagadit/DeepFaceLab_Linux.git
+[submodule "TransformMeshToGIFSprite"]
+	path = TransformMeshToGIFSprite
+	url = https://github.com/leno3003/TransformMeshToGIFSprite.git
