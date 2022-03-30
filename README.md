@@ -97,7 +97,7 @@ requiring human interaction in order to acquire the user's preferences about exe
 parameters, some changes have been made to the default
 DeepFaceLab's repository code.
 
-By runnning 
+By runnning in the `faceSwapAugmentation` directory:
 ```
 python DeepFaceLab_Linux/DeepFaceLab/core/interact/no_interact_dict.py
 ```
