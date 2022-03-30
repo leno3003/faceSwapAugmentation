@@ -18,7 +18,34 @@ The obtained result will strongly rely on two factors:
 - Angle variance
 
 ## Installation and setup
+Virual environments are managed with 
+[Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/).
+There are several virtual environments that are necessary for the
+whole pipeline. A `.yml` file for each of those can be found under the
+`envs` folder.
+To create an environment from a `.yml` file, type:
+`conda env create -f environment.yml`. This command must be run for
+each file in the `envs` folder.
+**Check all the submodule's repositories for further instruction
+about the installation of each and single element of the pipeline.**
 
+In order to use `KDEF` as face dataset, it must be placed in the
+`faceSwapAugmentation` directory.
+```
+.
+├── Deep3DFaceRecon_pytorch
+├── DeepFaceLab_Linux
+├── ***KDEF_and_AKDEF***
+├── README.md
+├── ThisPersonDoesNotExistAPI
+├── TransformMeshToGIFSprite
+├── framesEvaluation.py
+├── lmDeep3DFR.py
+├── pipelineAutomation.sh
+├── stylegan2-ada-pytorch
+└── swapQualityEvaluation
+
+```
 ## Usage
 
 The pipeline takes as input a video, called `data_dst.mp4`. This will
