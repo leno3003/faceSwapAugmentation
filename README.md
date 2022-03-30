@@ -32,7 +32,7 @@ To create an environment from a `.yml` file, type:
 `conda env create -f environment.yml`. This command must be run for
 each file in the `envs` folder.
 
-**Check all the submodule's repositories for further instruction
+**Check all the submodule's repositories for further instructions
 about the installation of each and single element of the pipeline.**
 
 In order to use `KDEF` as face dataset, it must be placed in the
