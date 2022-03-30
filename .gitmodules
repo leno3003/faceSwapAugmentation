@@ -4,3 +4,12 @@
 [submodule "TransformMeshToGIFSprite"]
 	path = TransformMeshToGIFSprite
 	url = https://github.com/leno3003/TransformMeshToGIFSprite.git
+[submodule "Deep3DFaceRecon_pytorch"]
+	path = Deep3DFaceRecon_pytorch
+	url = https://github.com/sicxu/Deep3DFaceRecon_pytorch.git
+[submodule "stylegan2-ada-pytorch"]
+	path = stylegan2-ada-pytorch
+	url = https://github.com/NVlabs/stylegan2-ada-pytorch.git
+[submodule "ThisPersonDoesNotExistAPI"]
+	path = ThisPersonDoesNotExistAPI
+	url = https://github.com/David-Lor/ThisPersonDoesNotExistAPI.git
