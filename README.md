@@ -61,8 +61,23 @@ following:
 
 Choosing `stylegan`, the pipeline will generate a face using
 [stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch/)
+Example:
+`./pipelineAutomation.sh -s stylegan -d test.mp4`
 
 Choosing `tpdne`, the pipeline will generate a face using
 [ThisPersonDoesNotExistAPI](https://github.com/David-Lor/ThisPersonDoesNotExistAPI)
+Example:
+`./pipelineAutomation.sh -s tpdne -d test.mp4`
 
-KDEF must be placed in the `faceSwapAugmentation` directory.
+Choosing `whole`, will be produced a face-swap video for each
+individual in the `KDEF_and_AKDEF/KDEF/` folder.
+Example:
+`./pipelineAutomation.sh -s whole -d test.mp4`
+
+Passing as `-s` argument a path to a folder, all the images in it will
+be used in order to create the face swap video.
+Example:
+`./pipelineAutomation.sh -s img_folder/ -d test.mp4`
+
+Generic usage:
+`./pipelineAutomation.sh -s <src_path> -d <dst_path>`
