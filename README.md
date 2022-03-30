@@ -36,3 +36,5 @@ Choosing `stylegan`, the pipeline will generate a face using
 
 Choosing `tpdne`, the pipeline will generate a face using
 [ThisPersonDoesNotExistAPI](https://github.com/David-Lor/ThisPersonDoesNotExistAPI)
+
+KDEF must be placed in the `faceSwapAugmentation` directory.

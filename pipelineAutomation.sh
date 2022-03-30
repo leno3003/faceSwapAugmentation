@@ -24,7 +24,7 @@ main() {
 }
 
 frame_evaluation(){
-  python /home/deepfake/DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
+  python framesEvaluation.py 
 }
 
 KDEF_execution(){
@@ -41,10 +41,10 @@ tpdne_execution(){
   source activate tpdne
   conda info -e
 
-  cd ThisPersonDoesNotExistAPI
-  rm *.jpeg
-  python getPerson.py
-  cd ..
+    cd ThisPersonDoesNotExistAPI
+    rm *.jpeg
+    python getPerson.py
+    cd ..
     echo "### ThisPersonDoesNotExistAPI Face Generated ###"
 
     conda activate 
@@ -134,7 +134,7 @@ tpdne_execution(){
     get_KDEF_folders
     while read -r line;
         do
-        cp /home/npunito/DeepFaceLab_Linux/KDEF_and_AKDEF/KDEF/${line}/* workspace/data_src
+        cp DeepFaceLab_Linux/KDEF_and_AKDEF/KDEF/${line}/* workspace/data_src
         swap_single_iteration ${line}
     done < people.txt
 
@@ -149,12 +149,12 @@ tpdne_execution(){
     ./7_merge_SAEHD.sh                 
     ./8_merged_to_mp4.sh                                                 
     cd ..
-    cp workspace/result.mp4 ~/material/results/r${1}.mp4                              
+    cp workspace/result.mp4 ../material/results/r${1}.mp4                              
     cd ..
   }
 
   get_KDEF_folders(){
-      ls DeepFaceLab_Linux/KDEF_and_AKDEF/KDEF > people.txt
+      ls KDEF_and_AKDEF/KDEF > people.txt
   }
 
   stylegan_generate(){
@@ -172,14 +172,14 @@ tpdne_execution(){
       python3 lmDeep3DFR.py -img "stylegan2-ada-pytorch/out/$IMG"
     elif [ "$SRC" = "tpdne" ]; then
 	    python3 lmDeep3DFR.py -img "ThisPersonDoesNotExistAPI/a_beautiful_person.jpeg"
-  fi
-  rm Deep3DFaceRecon_pytorch/custom_img/*.png  Deep3DFaceRecon_pytorch/custom_img/detections/*.txt
-  if [ "$SRC" = "stylegan" ]; then
-	  cp stylegan2-ada-pytorch/out/$IMG Deep3DFaceRecon_pytorch/custom_img/img.png
-  elif [ "$SRC" = "tpdne" ]; then
-	  cp ThisPersonDoesNotExistAPI/a_beautiful_person.jpeg Deep3DFaceRecon_pytorch/custom_img/img.png
-  fi
-	cp landmarks.txt Deep3DFaceRecon_pytorch/custom_img/detections/img.txt
+    fi
+    rm Deep3DFaceRecon_pytorch/custom_img/*.png  Deep3DFaceRecon_pytorch/custom_img/detections/*.txt
+    if [ "$SRC" = "stylegan" ]; then
+	    cp stylegan2-ada-pytorch/out/$IMG Deep3DFaceRecon_pytorch/custom_img/img.png
+    elif [ "$SRC" = "tpdne" ]; then
+	    cp ThisPersonDoesNotExistAPI/a_beautiful_person.jpeg Deep3DFaceRecon_pytorch/custom_img/img.png
+    fi
+	  cp landmarks.txt Deep3DFaceRecon_pytorch/custom_img/detections/img.txt
 }
 
 reconstruct(){
