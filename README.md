@@ -127,3 +127,18 @@ re-running the
 python DeepFaceLab_Linux/DeepFaceLab/core/interact/no_interact_dict.py
 ```
 command.
+## Swap evaluation
+
+In addition to the creation of the face-swapped video, this pipeline
+also provides an evaluation method for the face substitution.
+The score assigned to each face-swapped frame is the evaluation of the
+outcoming quality, based on how close the destination and the source
+frames are.
+
+For each destination-image's landmark, the distance with all the
+source-images' landmakrs is calculated. The evaluation score of each
+pair is the sum of the distances between corresponding landmarks'
+points. We compute the Euclidean distance of each destination's image
+landmark point, with the corrisponding source's image landmark point.
+Then we sum up the distances of each image pair (source and dest), 
+resulting in the score of the swapped frame.

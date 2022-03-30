@@ -209,3 +209,10 @@ with open('dists.csv', 'w') as v:
     write.writerows(dists_w_result)
 v.close()
 
+headers = ["valid_face" , "landmark_distance_sum", "dst_frame_name", "src_frame_name", "result_frame_name"]
+with open('distsSimple.csv', 'w') as v:
+    write = csv.writer(v) 
+    write.writerow(headers)
+    write.writerows(dists_w_result[1], dists_w_result[2], dists_w_result[3], dists_w_result[4], dists_w_result[5])
+v.close()
+
