@@ -1,0 +1,25 @@
+name: tpdne
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_gnu
+  - ca-certificates=2022.3.18=h06a4308_0
+  - libgcc-ng=11.2.0=h1d223b6_14
+  - libgomp=11.2.0=h1d223b6_14
+  - libzlib=1.2.11=h36c2ea0_1013
+  - ncurses=5.9=10
+  - openssl=1.0.2u=h516909a_0
+  - pip=21.3.1=pyhd8ed1ab_0
+  - python=3.6.0=2
+  - python_abi=3.6=2_cp36m
+  - readline=6.2=0
+  - requests=2.12.5=py36_0
+  - setuptools=58.0.4=py36h5fab9bb_2
+  - sqlite=3.13.0=1
+  - tk=8.5.19=2
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - xz=5.2.5=h516909a_1
+  - zlib=1.2.11=h36c2ea0_1013
+prefix: /home/deepfake/anaconda3/envs/tpdne

@@ -18,6 +18,7 @@ The obtained result will strongly rely on two factors:
 - Angle variance
 
 ## Installation and setup
+
 ## Usage
 
 The pipeline takes as input a video, called `data_dst.mp4`. This will

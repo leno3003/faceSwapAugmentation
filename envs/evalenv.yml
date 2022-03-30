@@ -1,0 +1,37 @@
+name: evaluation
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_gnu
+  - bzip2=1.0.8=h7f98852_4
+  - ca-certificates=2022.3.18=h06a4308_0
+  - libedit=3.1.20210910=h7f8727e_0
+  - libffi=3.2.1=he1b5a44_1007
+  - libgcc-ng=11.2.0=h1d223b6_14
+  - libgomp=11.2.0=h1d223b6_14
+  - libstdcxx-ng=11.2.0=he4da1e4_14
+  - libzlib=1.2.11=h36c2ea0_1013
+  - ncurses=6.3=h9c3ff4c_0
+  - openssl=1.0.2u=h516909a_0
+  - pip=22.0.4=pyhd8ed1ab_0
+  - python=3.7.0=hd21baee_1006
+  - python_abi=3.7=2_cp37m
+  - readline=7.0=hf8c457e_1001
+  - setuptools=60.10.0=py37h89c1867_0
+  - sqlite=3.33.0=h62c20be_0
+  - tk=8.6.12=h27826a3_0
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - xz=5.2.5=h516909a_1
+  - zlib=1.2.11=h36c2ea0_1013
+  - pip:
+    - colorama==0.4.4
+    - numexpr==2.8.1
+    - numpy==1.21.5
+    - opencv-python==4.5.5.64
+    - packaging==21.3
+    - pillow==9.0.1
+    - pyparsing==3.0.7
+    - scipy==1.7.3
+prefix: /home/deepfake/anaconda3/envs/evaluation
