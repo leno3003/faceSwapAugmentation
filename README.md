@@ -32,8 +32,23 @@ To create an environment from a `.yml` file, type:
 `conda env create -f environment.yml`. This command must be run for
 each file in the `envs` folder.
 
+***Important: clone this repository with the following command in
+order to clone all the submodules***
+```
+git clone --recurse-submodules https://github.com/leno3003/faceSwapAugmentation
+
+```
 **Check all the submodule's repositories for further instructions
 about the installation of each and single element of the pipeline.**
+
+Once done that, 
+```
+cd DeepFaceLab_Linux
+```
+and
+```
+git clone https://github.com/leno3003/DeepFaceLab.git
+```
 
 In order to use `KDEF` as face dataset, it must be placed in the
 `faceSwapAugmentation` directory, as such:
