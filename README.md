@@ -88,4 +88,27 @@ Example:
 `./pipelineAutomation.sh -s img_folder/ -d test.mp4`
 
 Generic usage:
-`./pipelineAutomation.sh -s <src_path> -d <dst_path>`
+`./pipelineAutomation.sh -s <src_choice_or_path> -d <dst_path>`
+
+## Automation of the Pipeline
+
+Since `DeepFaceLab` is composed of several scripts, each of them
+requiring human interaction in order to acquire the user's preferences about execution
+parameters, some changes have been made to the default
+DeepFaceLab's repository code.
+
+By runnning 
+```
+python DeepFaceLab_Linux/DeepFaceLab/core/interact/no_interact_dict.py
+```
+the `interact_dict.pkl` file will be generated in the
+`DeepFaceLab_Linux/workspace/interact` folder. This pickle file will
+contain a dictionary of choices that will automatically be acquired
+whenever an input request is made by DeepFaceLab, allowing a Non
+Interactive usage. Choices can be modified, added or removed from the
+`no_interact_dict.py` dictionary just modifing the file itself, and
+re-running the 
+```
+python DeepFaceLab_Linux/DeepFaceLab/core/interact/no_interact_dict.py
+```
+command.
