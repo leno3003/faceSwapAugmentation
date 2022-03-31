@@ -29,7 +29,7 @@ def normalize_landmarks(lm):
 
 
 landmarks = []
-src_filename = glob.glob('../DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg')
+src_filename = glob.glob('../workspace/data_src/aligned/*.jpg')
 for f in src_filename:
     img = DFLJPG.load(f)
     landmarks.append(img.get_landmarks())
@@ -60,13 +60,12 @@ all_src_landmarks = norm_landmarks
 dst_landmarks = []
 
 dists = []
-#dist_imgs = []
-for ii, f in enumerate(glob.glob('../DeepFaceLab_Linux/workspace/data_dst/aligned/*.jpg')):
+#Questo dists restituisce gli stessi risultati di quello calcolato con la distanza
+# per punti?
+for ii, f in enumerate(glob.glob('../workspace/data_dst/aligned/*.jpg')):
     img = DFLJPG.load(f)
     dst_landmarks = normalize_landmarks(img.get_landmarks())
     dists_local = []
-    #https://stackoverflow.com/questions/32141856/is-norm-equivalent-to-euclidean-distance
-    #https://stackoverflow.com/questions/50849789/what-does-the-numpy-linalg-norm-function
     for f_src, src_landmarks in enumerate(all_src_landmarks):
         dist = np.sum(np.linalg.norm(src_landmarks - dst_landmarks, ord=2, axis=1))
         dists_local.append((dist, f, src_filename[f_src], dst_landmarks, src_landmarks))
