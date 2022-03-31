@@ -195,9 +195,9 @@ reconstruct(){
 }
 
 obj_to_png(){
-        blender -b -P TransformMeshToGIFSprite/GIFandSpriteFromModel.py -- --inm 'Deep3DFaceRecon_pytorch/checkpoints/model/results/custom_img/epoch_20_000000/img.obj'
+        blender -b -P objToPngs/GIFandSpriteFromModel.py -- --inm 'Deep3DFaceRecon_pytorch/checkpoints/model/results/custom_img/epoch_20_000000/img.obj'
         rm DeepFaceLab_Linux/workspace/data_src/*.png
-        mv TransformMeshToGIFSprite/*.png DeepFaceLab_Linux/workspace/data_src/
+        mv objToPngs/*.png DeepFaceLab_Linux/workspace/data_src/
 }
 
 if [ $# -le 3 ]; then
