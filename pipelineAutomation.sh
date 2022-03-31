@@ -1,5 +1,8 @@
 main() {
   dst_in_workspace $DST
+  mkdir Deep3DFaceRecon_pytorch/custom_img
+  mkdir Deep3DFaceRecon_pytorch/custom_img/detections
+
   echo "$DST $SRC"
   if [ "$SRC" = "stylegan" ]; then
     stylegan_execution
