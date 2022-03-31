@@ -79,7 +79,7 @@ for ii, f in enumerate(glob.glob('../workspace/data_dst/aligned/*.jpg')):
 # sort all samples from the best to the worst landmark pairing
 dists = list(sorted(dists, key=lambda d: d[0]))
 print("Primo metodo: ", dists[0][0])
-#dist_scores = list(zip(*dists))[0]
+dist_scores = list(zip(*dists))[0]
 
 
 # In[8]:
