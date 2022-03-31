@@ -79,8 +79,8 @@ for ii, f in enumerate(glob.glob('/home/deepfake/DeepFaceLab_Linux/workspace/dat
 
 # sort all samples from the best to the worst landmark pairing
 dists = list(sorted(dists, key=lambda d: d[0]))
-
-dist_scores = list(zip(*dists))[0]
+print("Primo metodo: ", dist[0][0])
+#dist_scores = list(zip(*dists))[0]
 
 
 # In[8]:
@@ -163,6 +163,8 @@ for x1, y1, x2, y2 in zip(src_lm[:,0], -src_lm[:,1], dst_lm[:,0], -dst_lm[:,1]):
     sum_dd += dd
 plt.legend(loc='lower left');
 print(sum_dd, dists[img_index][0], np.sum(np.linalg.norm(src_lm - dst_lm, ord=2, axis=1)))
+
+print("Second metodo: ",sum_dd) 
 
 
 # In[15]:
