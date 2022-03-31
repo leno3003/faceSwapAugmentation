@@ -21,6 +21,7 @@ The obtained results will strongly rely on two factors:
 The former is essential to achieve realistic face muscle motion and
 expressions, the latter is fundamental in oder to obtain a face swap
 even when the pose reaches extreme angles.
+![](mdimgs/PipelineStructure.draw.io)
 
 ## Installation and setup
 Virual environments are managed with 
