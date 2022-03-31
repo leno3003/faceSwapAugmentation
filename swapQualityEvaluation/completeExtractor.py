@@ -84,16 +84,12 @@ dist_scores = list(zip(*dists))[0]
 
 # In[8]:
 
-
-#rangeMin = np.quantile(dist_scores, 0.05)
 rangeMax = np.quantile(dist_scores, 0.95)
 fig = plt.figure() # Create matplotlib figure
 plt.hist(dist_scores, bins=500)
-#width = 0.4
 plt.xlabel('Score')
 plt.ylabel('Number of imgs')
 plt.ylim(0, 50)
-#plt.axvline(rangeMin, color='red')
 plt.axvline(rangeMax, color='red')
 plt.show()
 
@@ -102,14 +98,10 @@ plt.show()
 
 
 print(np.quantile(dist_scores, q=0.95))
-#print(np.percentile(dist_scores, q=95))
-#np.median(dist_scores)
-
 
 # In[10]:
 
-
-img_index = -200#len(dists)-1
+img_index = 0#len(dists)-1
 dst_frame_name = dists[img_index][1]
 dst_frame_num = str(dists[img_index][1])[-10:-6]
 src_frame_name = dists[img_index][2]
