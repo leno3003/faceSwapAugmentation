@@ -24,7 +24,7 @@ main() {
 }
 
 frame_evaluation(){
-  python framesEvaluation.py 
+  python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
 }
 
 KDEF_execution(){
@@ -149,6 +149,8 @@ tpdne_execution(){
     ./7_merge_SAEHD.sh                 
     ./8_merged_to_mp4.sh                                                 
     cd ..
+    mkdir ../material/
+    mkdir ../material/results
     cp workspace/result.mp4 ../material/results/r${1}.mp4                              
     cd ..
   }
