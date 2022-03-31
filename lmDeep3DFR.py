@@ -82,5 +82,5 @@ for pred_type in pred_types.values():
 
 ax.view_init(elev=90., azim=90.)
 ax.set_xlim(ax.get_xlim()[::-1])
-plt.show()
+#plt.show()
 plt.savefig('landmarks.png')
