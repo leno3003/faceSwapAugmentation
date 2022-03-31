@@ -60,8 +60,12 @@ all_src_landmarks = norm_landmarks
 dst_landmarks = []
 
 dists = []
-#Questo dists restituisce gli stessi risultati di quello calcolato con la distanza
-# per punti?
+# This method computes the distance between two images
+# by comparing their landmarks.
+# It calculates the distance between two correspondig landmark's dots
+# (one of the src image, and the other belonging to the dst img)
+# It then sums up all the distances of a pair of images. This sum will be
+# the score assigned to the face swap frame.
 for ii, f in enumerate(glob.glob('../workspace/data_dst/aligned/*.jpg')):
     img = DFLJPG.load(f)
     dst_landmarks = normalize_landmarks(img.get_landmarks())
@@ -72,6 +76,8 @@ for ii, f in enumerate(glob.glob('../workspace/data_dst/aligned/*.jpg')):
     # get the distance between the dst and the best src image
     dists.append((sorted(dists_local, key=lambda d: d[0]))[0])
 
+# The Euclidean distance between all the landmarks of two images is 
+# considered as the quality metric used to jugde the resulting frame
 
 # In[7]:
 
