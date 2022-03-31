@@ -145,6 +145,8 @@ plt.show()
 # In[14]:
 
 
+# This block computes the exact same evaluation of the beginning block.
+# It's just for debug and check.
 def point_dist(p1, p2):
     dx, dy = p2[0] - p1[0], p2[1] - p1[1]
     return math.sqrt(dx*dx + dy*dy)
