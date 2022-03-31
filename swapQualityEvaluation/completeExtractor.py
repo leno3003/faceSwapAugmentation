@@ -29,7 +29,7 @@ def normalize_landmarks(lm):
 
 
 landmarks = []
-src_filename = glob.glob('/home/deepfake/DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg')
+src_filename = glob.glob('../DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg')
 for f in src_filename:
     img = DFLJPG.load(f)
     landmarks.append(img.get_landmarks())
@@ -61,7 +61,7 @@ dst_landmarks = []
 
 dists = []
 #dist_imgs = []
-for ii, f in enumerate(glob.glob('/home/deepfake/DeepFaceLab_Linux/workspace/data_dst/aligned/*.jpg')):
+for ii, f in enumerate(glob.glob('../DeepFaceLab_Linux/workspace/data_dst/aligned/*.jpg')):
     img = DFLJPG.load(f)
     dst_landmarks = normalize_landmarks(img.get_landmarks())
     dists_local = []
