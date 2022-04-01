@@ -51,8 +51,8 @@ def frame_render():
     z_total_rotation = radians(5 * 36) / 2
     n = 0
     print('\n begin rendering frames: ')
-    for x_step in np.linspace(-x_total_rotation, x_total_rotation, 7): 
-        for z_step in np.linspace(-z_total_rotation, z_total_rotation, 11): 
+    for x_step in np.linspace(-x_total_rotation, x_total_rotation, 70): 
+        for z_step in np.linspace(-z_total_rotation, z_total_rotation, 110): 
     
             # set current frame to frame 5
             scene.frame_set(n)
