@@ -201,4 +201,4 @@ frame_render()
 # restore the filepath
 scene.render.filepath = fp
 bpy.ops.wm.quit_blender()
-sys.exit(0)
+exit(0)
