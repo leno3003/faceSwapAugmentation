@@ -43,6 +43,32 @@ def get_args():
   parsed_script_args, _ = parser.parse_known_args(script_args)
   return parsed_script_args
 
+def frame_render():
+    x_rotation = radians(90)
+    y_rotation = 0#radians(0)
+    z_rotation = 0#radians(300)
+    x_total_rotation = radians(5 * 20) / 2
+    z_total_rotation = radians(5 * 36) / 2
+    n = 0
+    print('\n begin rendering frames: ')
+    for x_step in np.linspace(-x_total_rotation, x_total_rotation, 7): 
+        for z_step in np.linspace(-z_total_rotation, z_total_rotation, 11): 
+    
+            # set current frame to frame 5
+            scene.frame_set(n)
+    
+            # set output path so render won't get overwritten
+        
+            ob = bpy.context.view_layer.objects.active
+            ob.name = 'tree'
+            # set the objects rotation
+            ob.rotation_euler = Euler((x_rotation + x_step, 
+                                       y_rotation, 
+                                       z_rotation + z_step
+                                       ), 'XYZ')
+            scene.render.filepath = fp + "/" + str(n)
+            bpy.ops.render.render(write_still=True) # render still
+            n += 1
 
 args = get_args()
 
@@ -158,48 +184,16 @@ print(fp)
 scene.render.image_settings.file_format = 'PNG' # set output format to .png
 
 scene = bpy.context.scene
-#print(scene.camera.rotation_euler)
-#print(scene.camera.location)
-#exit(0)
 
 scene.camera.location = (0, -6, 0)
 scene.camera.rotation_euler = Euler((radians(90), 0, 0), 'XYZ')
-#print(dir(scene.camera))
-#exit(0)
 
 print("\n Saving a .blend file of the scene")
 bpy.ops.wm.save_as_mainfile(filepath="OBJscene.blend")
 
 
-#bpy.ops.view3d.dolly()
 
-x_rotation = radians(90)
-y_rotation = 0#radians(0)
-z_rotation = 0#radians(300)
-n = 0
-x_total_rotation = radians(5 * 20) / 2
-z_total_rotation = radians(5 * 36) / 2
 
-def frame_render():
-    print('\n begin rendering frames: ')
-    for x_step in np.linspace(-x_total_rotation, x_total_rotation, 7): 
-        for z_step in np.linspace(-z_total_rotation, z_total_rotation, 11): 
-    
-            # set current frame to frame 5
-            scene.frame_set(n)
-    
-            # set output path so render won't get overwritten
-        
-            ob = bpy.context.view_layer.objects.active
-            ob.name = 'tree'
-            # set the objects rotation
-            ob.rotation_euler = Euler((x_rotation + x_step, 
-                                       y_rotation, 
-                                       z_rotation + z_step
-                                       ), 'XYZ')
-            scene.render.filepath = fp + "/" + str(n)
-            bpy.ops.render.render(write_still=True) # render still
-            n += 1
 
 
     
