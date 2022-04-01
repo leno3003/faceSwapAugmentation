@@ -145,7 +145,7 @@ landmark point, with the corrisponding source's image landmark point.
 Then we sum up the distances of each image pair (source and dest), 
 resulting in the score of the swapped frame.
 
-![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=0}^{n} euclidean_distance(p_{src}, p_{dst}))
+<img src="https://render.githubusercontent.com/render/math?math=\sum_{i=0}^{n} euclidean_distance(p_{src}, p_{dst})"/>
 
 Where `n` is the number of landmark points of a single image, and
 `p_{src}` and `p_{dst}` are two corresponding landmark points.
