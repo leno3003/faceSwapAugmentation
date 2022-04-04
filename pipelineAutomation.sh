@@ -36,7 +36,8 @@ KDEF_execution(){
 
   f="$(basename -- $SRC)"
 
-  swap_single_iteration $f
+  from="KDEF"
+  swap_single_iteration $f $from
 }
 
 tpdne_execution(){
@@ -73,7 +74,8 @@ tpdne_execution(){
     conda info -e
 
     seed=$((1 + $RANDOM % 4294967296))
-    swap_single_iteration $seed
+    from="tpdne"
+    swap_single_iteration $seed $from
   }
 
   stylegan_execution(){
@@ -108,7 +110,8 @@ tpdne_execution(){
     source activate deepfacelab 
     conda info -e
 
-    swap_single_iteration $seed
+    from="stylegan2"
+    swap_single_iteration $seed $from
   }
 
   dst_in_workspace(){
@@ -138,7 +141,8 @@ tpdne_execution(){
     while read -r line;
         do
         cp DeepFaceLab_Linux/KDEF_and_AKDEF/KDEF/${line}/* workspace/data_src
-        swap_single_iteration ${line}
+        from="KDEF"
+        swap_single_iteration ${line} ${from}
     done < people.txt
 
     cd ../..
@@ -154,7 +158,7 @@ tpdne_execution(){
     cd ..
     mkdir ../material/
     mkdir ../material/results
-    cp workspace/result.mp4 ../material/results/r${1}.mp4                              
+    cp workspace/result.mp4 ../material/results/${2}${DST}-${1}.mp4                              
     cd ..
   }
 
