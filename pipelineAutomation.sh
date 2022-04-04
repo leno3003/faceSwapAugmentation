@@ -7,6 +7,9 @@ main() {
   if [ "$SRC" = "stylegan" ]; then
     stylegan_execution
   elif [ "$SRC" = "tpdne" ]; then
+    rm DeepFaceLab_Linux/workspace/data_src/*.*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
     tpdne_execution 
   elif [ "$SRC" = "whole" ]; then
     conda activate 
@@ -85,6 +88,10 @@ tpdne_execution(){
     seed=$((1 + $RANDOM % 4294967296))
     echo "$seed"
 
+    rm DeepFaceLab_Linux/workspace/data_src/*.*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
+
     stylegan_generate $seed
     echo "### Stylegan Face Generated ###"
 
@@ -120,10 +127,6 @@ tpdne_execution(){
     rm DeepFaceLab_Linux/workspace/data_dst/aligned/*
     rm DeepFaceLab_Linux/workspace/data_dst/aligned_debug/*
 
-    rm DeepFaceLab_Linux/workspace/data_src/*.*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
-
     cp $DST DeepFaceLab_Linux/workspace/data_dst.mp4
 
     conda activate 
@@ -136,6 +139,10 @@ tpdne_execution(){
   } 
 
   src_in_workspace(){
+    rm DeepFaceLab_Linux/workspace/data_src/*.*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
+
     cp $SRC/* DeepFaceLab_Linux/workspace/data_src/
   }
   swap_iteration_whole_dataset(){
