@@ -191,7 +191,10 @@ tpdne_execution(){
     cd ..
     mkdir ../material/
     mkdir ../material/results
-    d="$(basename -- $DST)"
+
+    d=$( echo ${DST%/*} )
+    d=$(echo ${path##*/})
+
     cp workspace/result.mp4 ../material/results/${2}-${d}-${1}.mp4                              
     cd ..
   }
