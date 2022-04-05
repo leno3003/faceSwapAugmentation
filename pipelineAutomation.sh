@@ -6,7 +6,6 @@ main() {
 
   if [ -z "$SRCV" ]; then
     src_in_workspace 
-
     conda activate 
     source activate deepfacelab 
     conda info -e
