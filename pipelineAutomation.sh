@@ -27,6 +27,7 @@ main() {
     rm DeepFaceLab_Linux/workspace/data_src/aligned/*
     swap_iteration_whole_dataset
   else
+    echo "Kdef"
    conda activate 
    source activate deepfacelab 
    conda info -e
