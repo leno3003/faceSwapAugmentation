@@ -1,8 +1,5 @@
 main() {
   echo "$DST $SRC"
-  l=$( echo ${DST%/*} )
-  l=$(echo ${l##*/})
-  echo $l
   dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
