@@ -4,7 +4,7 @@ main() {
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
-  if ["${filename##*.}" = "avi"] || ["${filename##*.}" = "mp4"]; then
+  if [ "${filename##*.}" = "avi" ] || [ "${filename##*.}" = "mp4" ]; then
     echo "Not null"
     src_in_workspace 
     conda activate 
