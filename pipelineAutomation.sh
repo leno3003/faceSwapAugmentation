@@ -1,7 +1,7 @@
 main() {
   echo "$DST $SRC"
   l=$( echo ${DST%/*} )
-  l=$(echo ${path##*/})
+  l=$(echo ${l##*/})
   echo $l
   dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
@@ -196,7 +196,7 @@ tpdne_execution(){
     mkdir ../material/results
 
     d=$( echo ${DST%/*} )
-    d=$(echo ${path##*/})
+    d=$(echo ${d##*/})
 
     cp workspace/result.mp4 ../material/results/${2}-${d}-${1}.mp4                              
     cd ..
