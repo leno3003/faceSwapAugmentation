@@ -5,6 +5,7 @@ main() {
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
   if [ -z "$SRCV" ]; then
+    echo "Not null"
     src_in_workspace 
     conda activate 
     source activate deepfacelab 
@@ -12,10 +13,13 @@ main() {
 
     DeepFaceLab_exec
   elif [ "$SRC" = "stylegan" ]; then
+    echo "stylegan2"
     stylegan_execution
   elif [ "$SRC" = "tpdne" ]; then
+    echo "tpdne"
     tpdne_execution 
   elif [ "$SRC" = "whole" ]; then
+    echo "whole"
     conda activate 
     source activate deepfacelab 
     conda info -e
