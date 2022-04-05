@@ -7,9 +7,6 @@ main() {
   if [ "$SRC" = "stylegan" ]; then
     stylegan_execution
   elif [ "$SRC" = "tpdne" ]; then
-    rm DeepFaceLab_Linux/workspace/data_src/*.*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
     tpdne_execution 
   elif [ "$SRC" = "whole" ]; then
     conda activate 
@@ -87,10 +84,6 @@ tpdne_execution(){
     conda info -e
     seed=$((1 + $RANDOM % 4294967296))
     echo "$seed"
-
-    rm DeepFaceLab_Linux/workspace/data_src/*.*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
 
     stylegan_generate $seed
     echo "### Stylegan Face Generated ###"
