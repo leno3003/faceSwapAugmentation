@@ -3,8 +3,16 @@ main() {
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
-  echo "$DST $SRC"
-  if [ "$SRC" = "stylegan" ]; then
+  echo "$DST $SRC $SRCV"
+  if [ -z "$SRCV" ]; then
+    src_in_workspace 
+
+    conda activate 
+    source activate deepfacelab 
+    conda info -e
+
+    DeepFaceLab_exec
+  elif [ "$SRC" = "stylegan" ]; then
     stylegan_execution
   elif [ "$SRC" = "tpdne" ]; then
     tpdne_execution 
@@ -26,6 +34,31 @@ main() {
     conda info -e
   frame_evaluation
 }
+
+DeepFaceLab_exec(){
+    cd DeepFaceLab_Linux/scripts
+    ./2_extract_image_from_data_src.sh
+    ./4_data_src_extract_faces_S3FD.sh                        
+    ./5_data_dst_extract_faces_S3FD.sh                            
+    ./6_train_SAEHD_no_preview.sh                                         
+    ./7_merge_SAEHD.sh                 
+    ./8_merged_to_mp4.sh                                                 
+    cd ..
+    mkdir ../material/
+    mkdir ../material/results
+    d="$(basename -- $DST)"
+    cp workspace/result.mp4 ../material/results/${2}-${d}-${1}.mp4                              
+    cd ..
+
+}
+
+src_in_workspace(){
+    rm DeepFaceLab_Linux/workspace/data_src/*.*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
+
+    cp $SRCV DeepFaceLab_Linux/workspace/data_src.mp4
+  }
 
 frame_evaluation(){
   python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
@@ -132,13 +165,6 @@ tpdne_execution(){
     cd ../..
   } 
 
-  src_in_workspace(){
-    rm DeepFaceLab_Linux/workspace/data_src/*.*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
-
-    cp $SRC/* DeepFaceLab_Linux/workspace/data_src/
-  }
   swap_iteration_whole_dataset(){
     get_KDEF_folders
     while read -r line;
@@ -212,7 +238,7 @@ obj_to_png(){
 }
 
 if [ $# -le 3 ]; then
-  echo "Correct usage: ./pipelineAutomation.sh -s <src_path> -d <dst_path> \n"
+        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> (or -sv <path_to_video>) -d <dst_path> \n"
   exit 0
 fi
 while [ $# -gt 0 ]; do
@@ -220,7 +246,7 @@ while [ $# -gt 0 ]; do
     -d|--data-dst)
       if [ -z $2 ]; then
         echo "Param error: destination (-d) must be specified!\n"
-        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> -d <dst_path> \n"
+        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> (or -sv <path_to_video>) -d <dst_path> \n"
         exit 0
       fi
       DST="$2"
@@ -230,10 +256,20 @@ while [ $# -gt 0 ]; do
     -s|--src-data)
       if [ -z $2 ]; then
         echo "Param error: source (-s) must be specified!\n"
-        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> -d <dst_path> \n"
+        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> (or -sv <path_to_video>) -d <dst_path> \n"
         exit 0
       fi
       SRC="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -sv|--src-video)
+      if [ -z $2 ]; then
+        echo "Param error: source (-s) must be specified!\n"
+        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> (or -sv <path_to_video>) -d <dst_path> \n"
+        exit 0
+      fi
+      SRCV="$2"
       shift # past argument
       shift # past value
       ;;
