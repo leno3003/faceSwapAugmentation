@@ -13,6 +13,7 @@ main() {
     source activate deepfacelab 
     conda info -e
     rm DeepFaceLab_Linux/workspace/data_src/*
+    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
     swap_iteration_whole_dataset
   else
    conda activate 
@@ -205,6 +206,8 @@ obj_to_png(){
         blender -b -P objToPngs/GIFandSpriteFromModel.py -- --inm 'Deep3DFaceRecon_pytorch/checkpoints/model/results/custom_img/epoch_20_000000/img.obj'
         rm DeepFaceLab_Linux/workspace/data_src/*.png
         rm DeepFaceLab_Linux/workspace/data_src/*.jpg
+        rm DeepFaceLab_Linux/workspace/data_src/aligned/*.png
+        rm DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg
         mv objToPngs/*.png DeepFaceLab_Linux/workspace/data_src/
 }
 
