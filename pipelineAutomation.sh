@@ -1,9 +1,9 @@
 main() {
+  echo "$DST $SRC $SRCV"
   dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
-  echo "$DST $SRC $SRCV"
   if [ -z "$SRCV" ]; then
     src_in_workspace 
 
