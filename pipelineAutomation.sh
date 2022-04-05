@@ -1,10 +1,10 @@
 main() {
-  echo "$DST $SRC $SRCV"
+  echo "$DST $SRC"
   dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
-  if [ -z "$SRCV" ]; then
+  if ["${filename##*.}" = "avi"] || ["${filename##*.}" = "mp4"]; then
     echo "Not null"
     src_in_workspace 
     conda activate 
@@ -61,7 +61,7 @@ src_in_workspace(){
     rm DeepFaceLab_Linux/workspace/data_src/aligned/*
     rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*
 
-    cp $SRCV DeepFaceLab_Linux/workspace/data_src.mp4
+    cp $SRC DeepFaceLab_Linux/workspace/data_src.mp4
   }
 
 frame_evaluation(){
@@ -264,16 +264,6 @@ while [ $# -gt 0 ]; do
         exit 0
       fi
       SRC="$2"
-      shift # past argument
-      shift # past value
-      ;;
-    -sv|--src-video)
-      if [ -z $2 ]; then
-        echo "Param error: source (-s) must be specified!\n"
-        echo "Correct usage: ./pipelineAutomation.sh -s <src_path> (or -sv <path_to_video>) -d <dst_path> \n"
-        exit 0
-      fi
-      SRCV="$2"
       shift # past argument
       shift # past value
       ;;
