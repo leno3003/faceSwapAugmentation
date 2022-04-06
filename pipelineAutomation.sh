@@ -66,6 +66,11 @@ src_in_workspace(){
 
 frame_evaluation(){
   python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
+  base=$( echo ${DST%/*} )
+  base=$(echo ${base##*/})
+  cp DeepFaceLab_Linux/DeepFaceLab/dists.csv DeepFaceLab_Linux/DeepFaceLab/${base}dists.csv 
+  cp DeepFaceLab_Linux/DeepFaceLab/distsSimple.csv DeepFaceLab_Linux/DeepFaceLab/${base}distsSimple.csv
+
 }
 
 KDEF_execution(){
