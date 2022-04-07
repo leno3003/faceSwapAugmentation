@@ -72,6 +72,7 @@ frame_evaluation(){
   base=$(echo ${base##*/})
   cp dists.csv material/results/${base}dists${seed}.csv 
   cp distsSimple.csv material/results/${base}distsSimple${seed}.csv
+  cp rangeMax.txt material/results/${base}rangeMax${seed}.txt
 
 }
 
