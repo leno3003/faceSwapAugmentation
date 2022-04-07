@@ -70,8 +70,8 @@ frame_evaluation(){
   python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
   base=$( echo ${DST%/*} )
   base=$(echo ${base##*/})
-  cp dists.csv ../material/results/${base}dists${seed}.csv 
-  cp distsSimple.csv ../material/results/${base}distsSimple${seed}.csv
+  cp dists.csv material/results/${base}dists${seed}.csv 
+  cp distsSimple.csv material/results/${base}distsSimple${seed}.csv
 
 }
 
