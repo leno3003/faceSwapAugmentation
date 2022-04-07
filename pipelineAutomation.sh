@@ -4,6 +4,8 @@ main() {
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
 
+  seed=$((1 + $RANDOM % 4294967296))
+
   if [ -f $SRC ]; then
     echo "Not null"
     src_in_workspace 
@@ -68,8 +70,8 @@ frame_evaluation(){
   python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
   base=$( echo ${DST%/*} )
   base=$(echo ${base##*/})
-  cp dists.csv ../material/results/${base}dists.csv 
-  cp distsSimple.csv ../material/results/${base}distsSimple.csv
+  cp dists.csv ../material/results/${base}dists${seed}.csv 
+  cp distsSimple.csv ../material/results/${base}distsSimple${seed}.csv
 
 }
 
@@ -116,7 +118,6 @@ tpdne_execution(){
     source activate deepfacelab 
     conda info -e
 
-    seed=$((1 + $RANDOM % 4294967296))
     from="tpdne"
     swap_single_iteration $seed $from
   }
@@ -125,7 +126,6 @@ tpdne_execution(){
     conda activate
     source activate stylegan2
     conda info -e
-    seed=$((1 + $RANDOM % 4294967296))
     echo "$seed"
 
     stylegan_generate $seed
