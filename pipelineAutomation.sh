@@ -52,8 +52,11 @@ DeepFaceLab_exec(){
     cd ..
     mkdir ../material/
     mkdir ../material/results
-    d="$(basename -- $DST)"
-    cp workspace/result.mp4 ../material/results/${2}-${d}-${1}.mp4                              
+    d=$( echo ${DST%/*} )
+    d=$(echo ${d##*/})
+    s=$( echo ${SRC%/*} )
+    s=$(echo ${s##*/})
+    cp workspace/result.mp4 ../material/results/${s}-${d}-${1}.mp4                              
     cd ..
 
 }
