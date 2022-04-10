@@ -13,7 +13,7 @@ main() {
     source activate deepfacelab 
     conda info -e
 
-    DeepFaceLab_exec
+    DeepFaceLab_exec $seed
   elif [ "$SRC" = "stylegan" ]; then
     echo "stylegan2"
     stylegan_execution
@@ -54,9 +54,8 @@ DeepFaceLab_exec(){
     mkdir ../material/results
     d=$( echo ${DST%/*} )
     d=$(echo ${d##*/})
-    s=$( echo ${SRC%/*} )
-    s=$(echo ${s##*/})
-    cp workspace/result.mp4 ../material/results/${s}-${d}-${1}.mp4                              
+    mkdir material/results/${d}-${seed}/
+    cp workspace/result.mp4 ../material/results/${d}-${seed}.mp4                              
     cd ..
 
 }
@@ -73,9 +72,9 @@ frame_evaluation(){
   python DeepFaceLab_Linux/DeepFaceLab/framesEvaluation.py 
   base=$( echo ${DST%/*} )
   base=$(echo ${base##*/})
-  cp dists.csv material/results/${base}dists${seed}.csv 
-  cp distsSimple.csv material/results/${base}distsSimple${seed}.csv
-  cp rangeMax.txt material/results/${base}rangeMax${seed}.txt
+  cp dists.csv material/results/${base}-${seed}/${base}-${seed}.full.csv 
+  cp distsSimple.csv material/results/${base}-${seed}/${base}-${seed}.csv
+  cp rangeMax.txt material/results/${base}-${seed}/${base}-${seed}.rangeMax
 
 }
 
@@ -204,7 +203,8 @@ tpdne_execution(){
     d=$( echo ${DST%/*} )
     d=$(echo ${d##*/})
 
-    cp workspace/result.mp4 ../material/results/${2}-${d}-${1}.mp4                              
+    mkdir material/results/${d}-${seed}/
+    cp workspace/result.mp4 ../material/results/${d}-${seed}/${d}-${seed}.mp4                              
     cd ..
   }
 
