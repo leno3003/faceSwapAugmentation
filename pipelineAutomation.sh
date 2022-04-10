@@ -54,7 +54,7 @@ DeepFaceLab_exec(){
     mkdir ../material/results
     d=$( echo ${DST%/*} )
     d=$(echo ${d##*/})
-    mkdir material/results/${d}-${seed}/
+    mkdir ../material/results/${d}-${seed}/
     cp workspace/result.mp4 ../material/results/${d}-${seed}.mp4                              
     cd ..
 
@@ -203,7 +203,7 @@ tpdne_execution(){
     d=$( echo ${DST%/*} )
     d=$(echo ${d##*/})
 
-    mkdir material/results/${d}-${seed}/
+    mkdir ../material/results/${d}-${seed}/
     cp workspace/result.mp4 ../material/results/${d}-${seed}/${d}-${seed}.mp4                              
     cd ..
   }
