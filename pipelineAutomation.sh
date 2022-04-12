@@ -205,6 +205,7 @@ tpdne_execution(){
 
     mkdir ../material/results/${d}-${seed}/
     cp workspace/result.mp4 ../material/results/${d}-${seed}/${d}-${seed}.mp4                              
+    cp ../Deep3DFaceRecon_pytorch/custom_img/img.png ../material/results/${d}-${seed}/src.png
     cd ..
   }
 
