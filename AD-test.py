@@ -18,10 +18,15 @@ def score_extractor(path):
 
     return scores
 
+
+def float_score(s):
+    return (float(s.split(" ")[0].split('=')[1][0:-1]))
+
+
 src_filename = glob.glob('material/results/**/*.full.csv')
 v = []
 for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.anderson(s, dist='norm')
-    v.append([f, p])
+    v.append([f, float_score(p)])
 print(v)
