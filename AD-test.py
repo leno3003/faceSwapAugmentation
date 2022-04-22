@@ -3,6 +3,7 @@ import scipy.stats
 import glob
 import csv
 from collections import defaultdict
+
 def score_extractor(path):
     columns = defaultdict(list) # each value in each column is appended to a list
 
@@ -27,7 +28,7 @@ src_filename = glob.glob('material/results/**/*.full.csv')
 v = []
 for f in src_filename:
     s = score_extractor(f)
-    p = scipy.stats.anderson(s, dist='norm')
+    p = scipy.stats.lognorm.fit(s)
     v.append([f, float_score(str(p))])
 for f in v:
     print(f)
