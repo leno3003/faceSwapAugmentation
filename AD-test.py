@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import scipy.stats
+import glob
 import csv
 from collections import defaultdict
 def score_extractor(path):
@@ -16,12 +17,11 @@ def score_extractor(path):
         scores.append(float(i))
 
     return scores
-sB = score_extractor('BaccegaUnmasked-09-57-25-13016.csv')
-print(sB)
-src_filename = glob.glob('material/results/')
+
+src_filename = glob.glob('material/results/**/*.full.csv')
 v = []
 for f in src_filename:
-    s = score_extractor(f+f+'.csv')
+    s = score_extractor(f)
     p = scipy.stats.anderson(s, dist='norm')
-    v.append(list(f, p))
-
+    v.append([f, p])
+print(v)
