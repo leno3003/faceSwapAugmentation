@@ -29,4 +29,7 @@ for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.anderson(s, dist='norm')
     v.append([f, float_score(str(p))])
-print(v)
+for f in v:
+    print(f)
+    print("\n")
+
