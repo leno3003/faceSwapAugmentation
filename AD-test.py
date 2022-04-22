@@ -1,17 +1,7 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import scipy.stats
 import csv
 from collections import defaultdict
-
-
-# In[2]:
-
-
 def score_extractor(path):
     columns = defaultdict(list) # each value in each column is appended to a list
 
@@ -26,43 +16,12 @@ def score_extractor(path):
         scores.append(float(i))
 
     return scores
-
-
-# In[3]:
-
-
 sB = score_extractor('BaccegaUnmasked-09-57-25-13016.csv')
 print(sB)
-
-
-# In[4]:
-
-
-scipy.stats.anderson(sB, dist='norm')
-
-
-# In[6]:
-
-
-sA = score_extractor('AmparoreUnmasked-09-02-24-409.csv')
-print(sA)
-
-
-# In[8]:
-
-
-scipy.stats.anderson(sA, dist='norm')
-
-
-# In[9]:
-
-
-sI = score_extractor('IdilioUnmasked-09-02-24-16518.csv')
-scipy.stats.anderson(sI, dist='norm')
-
-
-# In[ ]:
-
-
-
+src_filename = glob.glob('material/results/')
+v = []
+for f in src_filename:
+    s = score_extractor(f+f+'.csv')
+    p = scipy.stats.anderson(s, dist='norm')
+    v.append(list(f, p))
 
