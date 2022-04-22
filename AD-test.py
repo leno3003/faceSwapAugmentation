@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import scipy.stats
 import glob
+import matplotlib.pyplot as plt
 import csv
 from collections import defaultdict
 
@@ -30,6 +31,7 @@ for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
+    plt.hist(p)
     v.append([f, str(p)])
 for f in v:
     print(f)
