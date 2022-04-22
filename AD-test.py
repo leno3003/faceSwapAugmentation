@@ -29,7 +29,8 @@ v = []
 for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.lognorm.fit(s)
-    v.append([f, float_score(str(p))])
+    #v.append([f, float_score(str(p))])
+    v.append([f, str(p)])
 for f in v:
     print(f)
     print("\n")
