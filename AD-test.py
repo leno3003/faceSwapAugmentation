@@ -16,7 +16,8 @@ def score_extractor(path):
                                      # based on column name k
     scores = []
     for i in columns['landmark_distance_sum']:
-        scores.append(float(i))
+        if float(i) > 0:
+            scores.append(float(i))
 
     return scores
 
@@ -31,7 +32,8 @@ for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
-    plt.hist(p)
+    plt.hist(s, bins=200)
+    plt.show()
     v.append([f, str(p)])
 for f in v:
     print(f)
