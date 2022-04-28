@@ -3,6 +3,18 @@ main() {
   dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
+  rm DeepFaceLab_Linux/workspace/data_src/*.png
+  rm DeepFaceLab_Linux/workspace/data_src/*.PNG
+  rm DeepFaceLab_Linux/workspace/data_src/*.jpg
+  rm DeepFaceLab_Linux/workspace/data_src/*.JPG
+  rm DeepFaceLab_Linux/workspace/data_src/aligned/*.png
+  rm DeepFaceLab_Linux/workspace/data_src/aligned/*.PNG
+  rm DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg
+  rm DeepFaceLab_Linux/workspace/data_src/aligned/*.JPG
+  rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.png
+  rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.PNG
+  rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.jpg
+  rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.JPG
 
   seed=$((1 + $RANDOM % 4294967296))
 
@@ -25,8 +37,6 @@ main() {
     conda activate 
     source activate deepfacelab 
     conda info -e
-    rm DeepFaceLab_Linux/workspace/data_src/*
-    rm DeepFaceLab_Linux/workspace/data_src/aligned/*
     swap_iteration_whole_dataset
   else
     echo "Kdef"
@@ -247,10 +257,6 @@ reconstruct(){
 
 obj_to_png(){
         blender -b -P objToPngs/GIFandSpriteFromModel.py -- --inm 'Deep3DFaceRecon_pytorch/checkpoints/model/results/custom_img/epoch_20_000000/img.obj'
-        rm DeepFaceLab_Linux/workspace/data_src/*.png
-        rm DeepFaceLab_Linux/workspace/data_src/*.jpg
-        rm DeepFaceLab_Linux/workspace/data_src/aligned/*.png
-        rm DeepFaceLab_Linux/workspace/data_src/aligned/*.jpg
         mv objToPngs/*.png DeepFaceLab_Linux/workspace/data_src/
 }
 

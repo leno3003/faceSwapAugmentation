@@ -2,7 +2,7 @@ USERS=['Amparore', 'Baccega', 'Basile', 'Beccuti', 'Botta', 'Castagno', 'Davide'
        'Esposito', 'Francesca', 'Giovanni', 'Gunetti', 'Idilio', 'Ines', 'Malangone', 'Maurizio', 
        'Michael', 'MirkoLai', 'MirkoPolato', 'Olivelli', 'Pozzato', 'Riccardo', 'Rossana', 'Ruggero', 
        'Sapino', 'Simone', 'Susanna', 'Theseider', 'Thomas' ]
-nome="Davide"
+nome="DiNardo"
 print(USERS.index(nome))
 print(USERS[0])
 print(USERS[1])
