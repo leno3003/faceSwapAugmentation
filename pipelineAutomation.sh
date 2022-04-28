@@ -1,6 +1,5 @@
 main() {
   echo "$DST $SRC"
-  dst_in_workspace $DST
   mkdir Deep3DFaceRecon_pytorch/custom_img
   mkdir Deep3DFaceRecon_pytorch/custom_img/detections
   rm DeepFaceLab_Linux/workspace/data_src/*.png
@@ -15,6 +14,7 @@ main() {
   rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.PNG
   rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.jpg
   rm DeepFaceLab_Linux/workspace/data_src/aligned_debug/*.JPG
+  dst_in_workspace $DST
 
   seed=$((1 + $RANDOM % 4294967296))
 
