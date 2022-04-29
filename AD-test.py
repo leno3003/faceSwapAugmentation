@@ -36,7 +36,7 @@ for f in src_filename:
     plt.hist(s, bins=200)
     plt.savefig('plot'+i)
     v.append([f, str(p)])
-    i++
+    i = i + 1 
 for f in v:
     print(f)
     print("\n")
