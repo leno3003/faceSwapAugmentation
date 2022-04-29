@@ -33,7 +33,7 @@ for f in src_filename:
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
     plt.hist(s, bins=200)
-    plt.show()
+    plt.savefig('plot'+f)
     v.append([f, str(p)])
 for f in v:
     print(f)
