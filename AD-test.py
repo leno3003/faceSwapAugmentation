@@ -35,6 +35,7 @@ for f in src_filename:
     #v.append([f, float_score(str(p))])
     plt.hist(s, bins=200)
     plt.savefig('plot'+str(i))
+    plot.clf()
     v.append([f, str(p)])
     i = i + 1 
 for f in v:
