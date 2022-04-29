@@ -28,13 +28,15 @@ def float_score(s):
 
 src_filename = glob.glob('material/results/**/*.full.csv')
 v = []
-for ii, f in src_filename:
+i = 0
+for f in src_filename:
     s = score_extractor(f)
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
     plt.hist(s, bins=200)
-    plt.savefig('plot'+ii)
+    plt.savefig('plot'+i)
     v.append([f, str(p)])
+    i++
 for f in v:
     print(f)
     print("\n")
