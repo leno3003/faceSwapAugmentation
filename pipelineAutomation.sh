@@ -85,7 +85,7 @@ frame_evaluation(){
   cp dists.csv material/results/${base}-${seed}/${base}-${seed}.full.csv 
   cp distsSimple.csv material/results/${base}-${seed}/${base}-${seed}.csv
   cp rangeMax.txt material/results/${base}-${seed}/${base}-${seed}.rangeMax
-  $SRC > material/results/${base}-${seed}/info.txt
+  echo "$SRC"" > material/results/${base}-${seed}/info.txt
 
 }
 
