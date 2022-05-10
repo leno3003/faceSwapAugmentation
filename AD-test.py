@@ -34,10 +34,14 @@ for f in src_filename:
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
     plt.hist(s, bins=200)
+    plt.title(f)
+    plt.xlabel("Scores")
+    plt.ylabel("Occurrs per each score")
     plt.savefig('plot'+str(i))
     plt.clf()
     v.append([f, str(p)])
     i = i + 1 
+    break
 for f in v:
     print(f)
     print("\n")
