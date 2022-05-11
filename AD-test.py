@@ -34,7 +34,7 @@ for f in src_filename:
     p = scipy.stats.lognorm.fit(s)
     #v.append([f, float_score(str(p))])
     plt.hist(s, bins=200)
-    s = str("FaceSwap" + i)
+    s = "FaceSwap" +str(i)
     plt.title(s)
     plt.xlabel("Scores")
     plt.ylabel("Occurrs per each score")
